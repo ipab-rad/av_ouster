@@ -1,0 +1,5 @@
+<launch>
+  <include file="$(find-pkg-share av_ouster_launch)/launch/driver_launch.py">
+    <arg name="params_file" value="$(find-pkg-share av_ouster_launch)/params/av_ouster_config.yaml"/>
+  </include>
+</launch>
