@@ -21,7 +21,7 @@ from launch.substitutions import LaunchConfiguration
 from launch.actions import EmitEvent
 from launch.actions import RegisterEventHandler
 from launch_ros.events.lifecycle import ChangeState
-from launch_ros.events.lifecycle import matches_node_name
+from launch_ros.events import matches_node_name
 from launch_ros.event_handlers import OnStateTransition
 from launch.actions import LogInfo
 from launch.events import matches_action
