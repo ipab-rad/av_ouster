@@ -13,10 +13,16 @@
 #
 # See https://github.com/pre-commit/pre-commit
 
+exclude: |
+    (?x)(
+        ^av_ouster_launch/launch/driver_launch.py|
+        ^README.md
+    )
+
 repos:
   # Standard hooks
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+    rev: v4.6.0
     hooks:
       - id: check-added-large-files
       - id: check-ast
@@ -33,10 +39,9 @@ repos:
         exclude_types: [rst]
       - id: fix-byte-order-marker
 
-
   # Python hooks
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.15.1
+    rev: v3.15.2
     hooks:
     -   id: pyupgrade
         args: [--py36-plus]
@@ -49,10 +54,10 @@ repos:
       args: ["--ignore=D100,D101,D102,D103,D104,D105,D106,D107,D203,D212,D404"]
 
   - repo: https://github.com/psf/black
-    rev: 24.2.0
+    rev: 24.4.2
     hooks:
       - id: black
-        args: ["--line-length=99"]
+        args: ["--line-length=79", -S]
 
   - repo: https://github.com/pycqa/flake8
     rev: 7.0.0
@@ -62,7 +67,7 @@ repos:
 
   # CPP hooks
   - repo: https://github.com/pre-commit/mirrors-clang-format
-    rev: v18.1.0
+    rev: v18.1.4
     hooks:
       - id: clang-format
         args: ['-fallback-style=none', '-i']
@@ -84,7 +89,7 @@ repos:
         entry: ament_cpplint
         language: system
         files: \.(h\+\+|h|hh|hxx|hpp|cuh|c|cc|cpp|cu|c\+\+|cxx|tpp|txx)$
-        args: ["--linelength=100", "--filter=-whitespace/newline"]
+        args: ["--linelength=100", "--filter=-legal/copyright,-build/include_order"]
 
   # Cmake hooks
   - repo: local
@@ -96,14 +101,10 @@ repos:
         language: system
         files: CMakeLists\.txt$
 
-  # Copyright
-  - repo: local
+  - repo: https://github.com/cheshirekow/cmake-format-precommit
+    rev: v0.6.13
     hooks:
-      - id: ament_copyright
-        name: ament_copyright
-        description: Check if copyright notice is available in all files.
-        entry: ament_copyright
-        language: system
+      - id: cmake-format
 
   # Docs - RestructuredText hooks
   - repo: https://github.com/PyCQA/doc8
@@ -130,8 +131,9 @@ repos:
         args: ['--write-changes', '--uri-ignore-words-list=ist', '-L manuel']
         exclude: CHANGELOG\.rst|\.(svg|pyc|drawio|dae)$
 
+  # Check Github files
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.28.0
+    rev: 0.28.2
     hooks:
       - id: check-github-workflows
         args: ["--verbose"]
@@ -157,9 +159,22 @@ repos:
       - id: ros-include-guard
       - id: sort-package-xml
 
-  - repo: https://github.com/hadolint/hadolint
-    rev: v2.12.0
+  # Dockerfiles
+  - repo: https://github.com/AleksaC/hadolint-py
+    rev: v2.12.1b3
     hooks:
-    - id: hadolint-docker
-      # Ignore non-pinned apt pckg
-      args: ['--ignore=DL3008']
+      - id: hadolint
+        # SC1091 - Ignore "File not included in mock"
+        args: ['--ignore=DL3008', '--ignore=SC1091']
+
+ci:
+    autofix_commit_msg: |
+        [pre-commit.ci] auto fixes from pre-commit.com hooks
+
+        for more information, see https://pre-commit.ci
+    autofix_prs: false
+    autoupdate_branch: ''
+    autoupdate_commit_msg: '[pre-commit.ci] pre-commit autoupdate'
+    autoupdate_schedule: weekly
+    skip: [ament_cppcheck, ament_cpplint, ament_lint_cmake]
+    submodules: false
