@@ -16,6 +16,8 @@ For more details please see [Dockerfile](./Dockerfile)
 
 The `av_ouster_launch` ROS package contains the required launch files and configuration parameters for launching the driver for a Ouster OS2-128.
 
+Please refer to [ros2_ouster_drivers](https://github.com/ros-drivers/ros2_ouster_drivers) for more information about the driver and configuration files.
+
 
 ## Usage
 
