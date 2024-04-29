@@ -66,7 +66,9 @@ def generate_launch_description():
             target_lifecycle_node=driver_node,
             goal_state="inactive",
             entities=[
-                LogInfo(msg="[LifecycleLaunch] Ouster driver node is activating."),
+                LogInfo(
+                    msg="[LifecycleLaunch] Ouster driver node is activating."
+                ),
                 EmitEvent(
                     event=ChangeState(
                         lifecycle_node_matcher=matches_action(driver_node),
@@ -83,11 +85,15 @@ def generate_launch_description():
             on_shutdown=[
                 EmitEvent(
                     event=ChangeState(
-                        lifecycle_node_matcher=matches_node_name(node_name=node_name),
+                        lifecycle_node_matcher=matches_node_name(
+                            node_name=node_name
+                        ),
                         transition_id=lifecycle_msgs.msg.Transition.TRANSITION_ACTIVE_SHUTDOWN,
                     )
                 ),
-                LogInfo(msg="[LifecycleLaunch] Ouster driver node is exiting."),
+                LogInfo(
+                    msg="[LifecycleLaunch] Ouster driver node is exiting."
+                ),
             ],
         )
     )
