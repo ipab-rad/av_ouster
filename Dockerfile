@@ -4,11 +4,7 @@ FROM ros:humble-ros-base-jammy AS base
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive \
         apt-get -y --quiet --no-install-recommends install \
-        libtins-dev \
-        ros-"$ROS_DISTRO"-pcl-conversions \
-        # Ouster Lidar
         ros-"$ROS_DISTRO"-ros2-ouster \
-        ros-"$ROS_DISTRO"-ouster-msgs \
     && rm -rf /var/lib/apt/lists/*
 
 # Setup ROS workspace folder
