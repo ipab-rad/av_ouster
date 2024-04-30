@@ -2,8 +2,8 @@
 Changelog for package av_ouster_launch
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.0.0 (2024-04-30)
+------------------
 * Fix line length on inherited python launch script
 * Fix matched_node_name deprecation warn
 * Porting code frome ipab-rad/ros2_ouster_drivers
