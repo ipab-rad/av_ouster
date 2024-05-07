@@ -2,6 +2,11 @@
 Changelog for package av_ouster_launch
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Using ROS timestamp
+* Contributors: Hector Cruz
+
 1.0.0 (2024-04-30)
 ------------------
 * Fix line length on inherited python launch script
