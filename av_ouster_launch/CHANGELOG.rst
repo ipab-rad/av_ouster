@@ -2,8 +2,8 @@
 Changelog for package av_ouster_launch
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.0.1 (2024-05-07)
+------------------
 * Using ROS timestamp
 * Contributors: Hector Cruz
 
