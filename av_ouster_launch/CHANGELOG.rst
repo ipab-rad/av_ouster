@@ -2,6 +2,11 @@
 Changelog for package av_ouster_launch
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Add bash args to optionally load local cyclone_dds
+* Contributors: Alejandro Bordallo, hect95
+
 1.1.0 (2024-05-20)
 ------------------
 * Add cyclone DDS as ROS RMW  + configurate it to support high msg throughput
