@@ -4,6 +4,8 @@ FROM ros:humble-ros-base-jammy AS base
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive \
         apt-get -y --quiet --no-install-recommends install \
+        sudo \
+        gosu \
         ros-"$ROS_DISTRO"-ros2-ouster \
         # Install Cyclone DDS ROS RMW
         ros-"$ROS_DISTRO"-rmw-cyclonedds-cpp \
@@ -58,6 +60,11 @@ RUN echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> /root/.bashrc && \
     echo 'alias colcon_build="colcon build --symlink-install \
         --cmake-args -DCMAKE_BUILD_TYPE=Release && \
         source install/setup.bash"' >> /root/.bashrc
+
+COPY entrypoint.sh ./
+
+# Set the entrypoint
+ENTRYPOINT ["/opt/ros_ws/entrypoint.sh"]
 
 # Enter bash for development
 CMD ["bash"]

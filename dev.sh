@@ -63,8 +63,11 @@ DOCKER_BUILDKIT=1 docker build \
     -t av_ouster:latest-dev \
     -f Dockerfile --target dev .
 
+USER_ID="-e LOCAL_UID=$(id -u) -e LOCAL_GID=$(id -g) -e LOCAL_USER=$(id -un) -e LOCAL_GROUP=$(id -gn)"
+
 # Run docker image with local code volumes for development
 docker run -it --rm --net host \
+    ${USER_ID} \
     -v /dev:/dev \
     -v /tmp:/tmp \
     -v /etc/localtime:/etc/localtime:ro \
