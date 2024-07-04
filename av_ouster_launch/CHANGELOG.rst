@@ -2,8 +2,8 @@
 Changelog for package av_ouster_launch
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.0.0 (2024-07-04)
+------------------
 * Migrate sensor driver to Ouster's official
   ROS 2 driver
 * Adapt launch pipeline for new driver
