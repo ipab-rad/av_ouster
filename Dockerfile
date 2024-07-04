@@ -5,12 +5,14 @@ RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive \
         apt-get -y --quiet --no-install-recommends install \
         git \
+        ros-"$ROS_DISTRO"-pcl-ros \
+        ros-"$ROS_DISTRO"-tf2-eigen \
         # Install Cyclone DDS ROS RMW
         ros-"$ROS_DISTRO"-rmw-cyclonedds-cpp \
     && rm -rf /var/lib/apt/lists/*
 
 # Setup ROS workspace folder
-ENV ROS_WS /opt/ros_ws
+ENV ROS_WS=/opt/ros_ws
 WORKDIR $ROS_WS
 
 # Set cyclone DDS ROS RMW
@@ -68,7 +70,7 @@ CMD ["bash"]
 
 # -----------------------------------------------------------------------
 
-FROM base as runtime
+FROM base AS runtime
 
 # Copy artifacts/binaries from prebuilt
 COPY --from=prebuilt $ROS_WS/install $ROS_WS/install
