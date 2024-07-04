@@ -26,8 +26,8 @@ ENV CYCLONEDDS_URI=file://${ROS_WS}/cyclone_dds.xml
 ENV RCUTILS_COLORIZED_OUTPUT=1
 
 # Clone Ouster ROS 2 driver source
-RUN mkdir src && cd src \
-    && git clone --recursive --branch ros2 https://github.com/ouster-lidar/ouster-ros.git
+RUN git clone --recursive --branch ros2 \
+    https://github.com/ouster-lidar/ouster-ros.git src/ouster-ros
 
 # -----------------------------------------------------------------------
 
