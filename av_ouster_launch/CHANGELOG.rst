@@ -2,6 +2,11 @@
 Changelog for package av_ouster_launch
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Fix ros driver build error
+* Contributors: hect95
+
 2.0.0 (2024-07-04)
 ------------------
 * Migrate sensor driver to Ouster's official
