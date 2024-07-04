@@ -12,7 +12,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 # Setup ROS workspace folder
-ENV ROS_WS /opt/ros_ws
+ENV ROS_WS=/opt/ros_ws
 WORKDIR $ROS_WS
 
 # Set cyclone DDS ROS RMW
@@ -70,7 +70,7 @@ CMD ["bash"]
 
 # -----------------------------------------------------------------------
 
-FROM base as runtime
+FROM base AS runtime
 
 # Copy artifacts/binaries from prebuilt
 COPY --from=prebuilt $ROS_WS/install $ROS_WS/install
