@@ -8,7 +8,7 @@ https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclo
             </Interfaces>
         </General>
         <Internal>
-            <SocketReceiveBufferSize min="10MB"/>
+            <SocketReceiveBufferSize min="14MB"/>
         </Internal>
     </Domain>
 </CycloneDDS>
