@@ -2,6 +2,14 @@
 Changelog for package av_ouster_launch
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Migrate sensor driver to Ouster's official
+  ROS 2 driver
+* Adapt launch pipeline for new driver
+  - driver_launch.py is removed
+* Contributors: hect95
+
 1.2.0 (2024-06-05)
 ------------------
 * Add bash args to optionally load local cyclone_dds

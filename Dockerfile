@@ -4,7 +4,7 @@ FROM ros:humble-ros-base-jammy AS base
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive \
         apt-get -y --quiet --no-install-recommends install \
-        ros-"$ROS_DISTRO"-ros2-ouster \
+        git \
         # Install Cyclone DDS ROS RMW
         ros-"$ROS_DISTRO"-rmw-cyclonedds-cpp \
     && rm -rf /var/lib/apt/lists/*
@@ -23,6 +23,10 @@ ENV CYCLONEDDS_URI=file://${ROS_WS}/cyclone_dds.xml
 
 # Enable ROS log colorised output
 ENV RCUTILS_COLORIZED_OUTPUT=1
+
+# Clone Ouster ROS 2 driver source
+RUN git clone --recursive --branch ros2 \
+    https://github.com/ouster-lidar/ouster-ros.git src/ouster-ros
 
 # -----------------------------------------------------------------------
 
