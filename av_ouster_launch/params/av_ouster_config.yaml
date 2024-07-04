@@ -52,7 +52,7 @@
     # lidar_frame[optional]: name to use when referring to the lidar frame.
     lidar_frame: lidar_ouster_sensor
     # imu_frame[optional]: name to use when referring to the imu frame.
-    imu_frame: imu
+    imu_frame: imu_ouster
     # point_cloud_frame[optional]: which frame of reference to use when
     # generating PointCloud2 or LaserScan messages, select between the values of
     # lidar_frame and sensor_frame.
