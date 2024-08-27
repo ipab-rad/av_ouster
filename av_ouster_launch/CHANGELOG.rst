@@ -2,6 +2,11 @@
 Changelog for package av_ouster_launch
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Change point type to xyzi
+* Contributors: Hector Cruz
+
 2.1.0 (2024-07-04)
 ------------------
 * Fix ros driver build error
