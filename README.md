@@ -5,11 +5,9 @@ This repository hosts the required environment for running the ROS 2 Ouster LIDA
 ## Docker container
 - **Operating System**: Ubuntu 22.04
 - **ROS Distribution**: Humble Hawksbill
-- **Velodyne Drivers**:
-    - `ros-humble-ros2-ouster`: Manages communication with the OS2  lidar
+- **Ouster Drivers**:
+    - `ouster-ros`: Compiled from source, manages communication with OS2 lidar
     - `ros-humble-ouster-msgs`: Custom Ouster ROS msgs
-
-    Note: Although the driver versions are not pinned in the Dockerfile, version `0.4.2-1` is the latest release available (via `apt` ) that has been tested on the vehicle sensor.
 
 For more details please see [Dockerfile](./Dockerfile)
 
@@ -18,7 +16,7 @@ For more details please see [Dockerfile](./Dockerfile)
 
 The `av_ouster_launch` ROS package contains the required launch files and configuration parameters for launching the driver for a Ouster OS2-128.
 
-Please refer to [ros2_ouster_drivers](https://github.com/ros-drivers/ros2_ouster_drivers) for more information about the driver and configuration files.
+Please refer to the official [ouster-ros](https://github.com/ouster-lidar/ouster-ros) source code for more information about the driver and configuration files.
 
 
 ## Usage
