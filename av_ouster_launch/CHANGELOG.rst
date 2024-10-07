@@ -2,8 +2,8 @@
 Changelog for package av_ouster_launch
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.3.0 (2024-10-07)
+------------------
 * Update Ouster-2 params (`#14 <https://github.com/ipab-rad/av_ouster/issues/14>`_)
   - Use `TIME_FROM_SYNC_PULSE_IN` to use NMEA timestamp for pointclouds
   - Switch to non-deprecated `RNG19_RFL8_SIG16_NIR16` udp profile
