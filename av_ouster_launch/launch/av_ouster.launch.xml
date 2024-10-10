@@ -1,9 +1,14 @@
 <launch>
   <arg name="ouster_ns" default="sensor/lidar/top"/>
+  <arg name="ros_time" default="false" description="If false use GPS/PPS time synch"/>
+  <let name="timestamp_mode" value="TIME_FROM_SYNC_PULSE_IN" unless="$(var ros_time)"/>
+  <let name="timestamp_mode" value="TIME_FROM_ROS_TIME" if="$(var ros_time)"/>
+
   <group>
     <push-ros-namespace namespace="$(var ouster_ns)"/>
     <node pkg="ouster_ros" exec="os_driver" name="os_driver" output="screen">
       <param from="$(find-pkg-share av_ouster_launch)/params/av_ouster_config.yaml"/>
+      <param name="timestamp_mode" value="$(var timestamp_mode)"/>
     </node>
   </group>
 
