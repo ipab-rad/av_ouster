@@ -2,8 +2,8 @@
 Changelog for package av_ouster_launch
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.4.0 (2024-10-11)
+------------------
 * Add ros_time argument to set GPS/PPS time synch
 * Contributors: Alejandro Bordallo
 
