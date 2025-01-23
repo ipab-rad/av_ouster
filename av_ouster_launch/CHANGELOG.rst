@@ -2,8 +2,8 @@
 Changelog for package av_ouster_launch
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.4.1 (2025-01-23)
+------------------
 * Define lidar/imu ports to avoid random port assignment
   - Set LIDAR and IMU ports to `1500` and `1501` respectively
 * Contributors: Hector Cruz
