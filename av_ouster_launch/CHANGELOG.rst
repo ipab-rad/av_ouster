@@ -2,6 +2,12 @@
 Changelog for package av_ouster_launch
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Define lidar/imu ports to avoid random port assignment
+  - Set LIDAR and IMU ports to `1500` and `1501` respectively
+* Contributors: Hector Cruz
+
 2.4.0 (2024-10-11)
 ------------------
 * Add ros_time argument to set GPS/PPS time synch
